@@ -50,6 +50,7 @@ Write above code in button action method
 
 #### Close dropdown 
 -(void)closeDropDown{
+
     _dropDown = nil;
     
 }
