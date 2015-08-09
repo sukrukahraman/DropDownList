@@ -10,14 +10,20 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *B_openList;
 @end
 
 @implementation ViewController
+
+-(void)awakeFromNib{
+    self.title = @"Dropdown List";
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.B_openList.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,11 +33,10 @@
 }
 
 - (IBAction)showOrHideDropDownList:(UIButton *)sender {
-    NSArray * arrListContent = @[@"Item 0", @"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6", @"Item 7", @"Item 8", @"Item 9"];
-
+    NSArray * arrListContent = @[@"Popular", @"Trending", @"Daily", @"Special"];
     
     if(_dropDown == nil) {
-        CGFloat dropDownListHeight = 320; //Set height of drop down list
+        CGFloat dropDownListHeight = 160; //Set height of drop down list
         NSString *direction = @"down"; //Set drop down direction animation
         
         _dropDown = [[SKDropDown alloc]showDropDown:sender withHeight:&dropDownListHeight withData:arrListContent animationDirection:direction];
